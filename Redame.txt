@@ -1,0 +1,12 @@
+---Instructions
+Open CMD/Power shell at ...project path\src
+1.Type: javac scrape.java
+2.Type: java  scrape "Movie Name" Results Number   example-->  java scrape "star trek" 5
+3.Open the text file MovieResults.txt at the same folder for the results.
+
+
+Remarks:
+I used jsoup library as a tool for parsing and finding information at imdb.
+The library has a slow run time so its best to choose minimal number for the results.
+I searched for movie names that containing the search string as a whole only.
+
