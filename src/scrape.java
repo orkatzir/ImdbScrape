@@ -25,14 +25,29 @@ public class scrape {
 			System.out.println("Number of Results is not valid,Please Enter Number greater then 0");
 			return;
 		}
+		List <MovieTitle> Titles=new  ArrayList<MovieTitle>();
 		int MaxResults=Integer.parseInt(args[1]);
-		List <MovieTitle> Titles=SearchImdb(SearchVal,MaxResults);
+		try
+		{
+		Titles=SearchImdb(SearchVal,MaxResults);
+		}
+		 catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error With Sarching Imdb!");
+			}
+		
 		if(Titles.size()==0)
 		{
 			System.out.println("No Results Were Found.");
 			return;			
 		}
-		List <MovieDetails> Details=GetMovieDetails(Titles);
+		List<MovieDetails> Details=new ArrayList<MovieDetails>();
+		try {
+			Details = GetMovieDetails(Titles);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("Error With Reading Details From Movie Page!");
+		}
 	    try {
 			PrintToFile(Details);
 		} catch (IOException e) {
@@ -48,13 +63,11 @@ public class scrape {
 
 
 
-	private static List<MovieTitle> SearchImdb(String searchVal, int maxResults) {
+	private static List<MovieTitle> SearchImdb(String searchVal, int maxResults) throws IOException {
 		// TODO Auto-generated method stub
 		List<MovieTitle> Titles = new ArrayList<MovieTitle>();
 		int index=0;
-		String Searchurl="https://www.imdb.com/find?q="+searchVal+"&s=tt&ttype=ft&ref_=fn_ft";
-		 try {
-						 
+		String Searchurl="https://www.imdb.com/find?q="+searchVal+"&s=tt&ttype=ft&ref_=fn_ft";				 
 	     Document doc = Jsoup.connect(Searchurl).get();//jsoup connect to search address
 
 		 for( Element row:doc.select("table.findList tr"))
@@ -68,16 +81,11 @@ public class scrape {
 			 if(index==maxResults)
 				 break;
 			 }
-         }
-		 
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+         }		
 		 return Titles;
 	
 	}
-	private static List<MovieDetails> GetMovieDetails(List<MovieTitle> titles) {
+	private static List<MovieDetails> GetMovieDetails(List<MovieTitle> titles) throws IOException {
 		
 		// TODO Auto-generated method stub
 		List<MovieDetails> movieDetails=new ArrayList<MovieDetails>();
@@ -89,9 +97,7 @@ public class scrape {
 			
 			String Title=new String(),Mpa=new String(),Duration=new String();
 			List <String> Generes = new ArrayList<String>(),Stars=new ArrayList<String>(),Directors=new ArrayList<String>();
-        	String url= "https://www.imdb.com"+E.getUrl();//movie page address
-			try {
-				 
+        	String url= "https://www.imdb.com"+E.getUrl();//movie page address				 
 			document= Jsoup.connect(url).get();
 			Title=E.getTitle();
 			Elements GenereEL=document.getElementsByAttributeValue("data-testid","genres").select("span.ipc-chip__text");
@@ -145,13 +151,7 @@ public class scrape {
             else
             {
             	Stars.add("Empty");
-            }
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+            }				
 			movieDetails.add(new MovieDetails(Title,Generes,Mpa,Duration,Directors,Stars));
 
 		}

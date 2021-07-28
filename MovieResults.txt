@@ -1,8 +1,2 @@
 ● Star Trek|Action,Adventure,Sci-Fi|PG-13|2h 7min|J.J. Abrams|Chris Pine,Zachary Quinto,Simon Pegg,Leonard Nimoy
 ● Star Trek: The Motion Picture|Adventure,Mystery,Sci-Fi|G|2h 12min|Robert Wise|William Shatner,Leonard Nimoy,DeForest Kelley,James Doohan
-● Untitled Star Trek Sequel|Action,Adventure,Mystery|Empty|Empty|Matt Shakman|Karl Urban,Zoe Saldana,Chris Pine,Simon Pegg
-● Star Trek Beyond|Action,Adventure,Sci-Fi|PG-13|2h 2min|Justin Lin|Chris Pine,Zachary Quinto,Karl Urban,Zoe Saldana
-● Star Trek Into Darkness|Action,Adventure,Sci-Fi|PG-13|2h 12min|J.J. Abrams|Chris Pine,Zachary Quinto,Zoe Saldana,Benedict Cumberbatch
-● Star Trek II: The Wrath of Khan|Action,Adventure,Sci-Fi|PG|1h 53min|Nicholas Meyer|William Shatner,Leonard Nimoy,DeForest Kelley,James Doohan
-● Star Trek VI: The Undiscovered Country|Action,Adventure,Sci-Fi|PG|1h 50min|Nicholas Meyer|William Shatner,Leonard Nimoy,DeForest Kelley,James Doohan
-● Star Trek: First Contact|Action,Adventure,Drama|PG-13|1h 51min|Jonathan Frakes|Patrick Stewart,Jonathan Frakes,Brent Spiner,LeVar Burton
